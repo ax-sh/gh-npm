@@ -17,10 +17,15 @@ var listCmd = &cobra.Command{
 			return
 		}
 
-		cmd.Println(pp.Sprintf("Found %s NPM packages\n", len(packages)))
+		cmd.Println(pp.Sprintf("Found %v NPM packages\n", len(packages)))
 		for _, pkg := range packages {
-			msg := pp.Sprintf("Package: %s (Type: %s)", pkg.Name, pkg.PackageType)
-			cmd.Println(msg, pkg.Owner.Login)
+			msg := pp.Sprintf("%s (%s)[%s] Package: %s",
+				pkg.UpdatedAt,
+				pkg.Owner.Login,
+				pkg.PackageType,
+				pkg.Name,
+			)
+			cmd.Println(msg, pkg.Repository.URL)
 		}
 
 	},
