@@ -1,15 +1,28 @@
 package cmd
 
 import (
+	"github.com/ax-sh/gh-npm/api"
+	"github.com/k0kubun/pp/v3"
 	"github.com/spf13/cobra"
 )
 
 // listCmd represents the list command
 var listCmd = &cobra.Command{
-	Use:   "list",
-	Short: "list all npm packages on github",
+	Use:     "list",
+	Aliases: []string{"l"},
+	Short:   "list all npm packages on github",
 	Run: func(cmd *cobra.Command, args []string) {
-		cmd.Println("list called")
+		packages, err := api.FetchPackages()
+		if err != nil {
+			return
+		}
+
+		cmd.Println(pp.Sprintf("Found %s NPM packages\n", len(packages)))
+		for _, pkg := range packages {
+			msg := pp.Sprintf("Package: %s (Type: %s)", pkg.Name, pkg.PackageType)
+			cmd.Println(msg, pkg.Owner.Login)
+		}
+
 	},
 }
 
