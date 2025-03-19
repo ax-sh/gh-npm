@@ -1,5 +1,11 @@
 version: 3
 tasks:
+  run:
+    cmd: go run .
+  run-debug:
+    cmd: go run . --debug
+  test:
+    cmd: go test -v ./...
   tag:
     desc: Create a new version tag and GitHub release with changelog
     cmds:
