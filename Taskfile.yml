@@ -12,3 +12,9 @@ tasks:
     desc: Create a new version tag and GitHub release with changelog
     cmds:
       - VERSION=$(git cliff --bumped-version) && git tag $VERSION && git push origin $VERSION && git cliff -l -s all | gh release create $VERSION --notes-file -
+  release:
+    cmd: goreleaser release
+
+  check:
+    cmds:
+      - goreleaser healthcheck
