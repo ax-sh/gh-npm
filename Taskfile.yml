@@ -6,6 +6,8 @@ tasks:
     cmd: go run . --debug
   test:
     cmd: go test -v ./...
+  clean:
+    cmd: rm -rf ./dist
   tag:
     desc: Create a new version tag and GitHub release with changelog
     cmds:

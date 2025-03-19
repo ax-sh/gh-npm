@@ -1,4 +1,5 @@
 dist
 .idea
 .vscode
-gh-npm
+gh-npm# Added by goreleaser init:
+dist/
