@@ -5,7 +5,6 @@ go 1.24.1
 require (
 	github.com/cli/go-gh/v2 v2.11.2
 	github.com/k0kubun/pp/v3 v3.4.1
-	github.com/magefile/mage v1.15.0
 	github.com/spf13/cobra v1.9.1
 	github.com/stretchr/testify v1.7.0
 )
