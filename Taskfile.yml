@@ -27,3 +27,39 @@ tasks:
     cmd: go tool gofumpt -l -w .
   tidy:
     cmd: go tool goimports -l -w .
+  view-ci:
+    cmd: gh run list --json workflowName,status,displayTitle,url,startedAt,createdAt,updatedAt | jq -r '(.[0]|keys_unsorted|(.,map(length*"-"))),.[]|map(.)|@tsv'| column -ts $'\t'
+  view-release-ci:
+    cmd: |
+      gh run list --json workflowName,status,displayTitle,url,startedAt,createdAt,updatedAt  | jq -r '
+      # Build a filtered array
+      ([.[] | select(.workflowName == "release")] as $filtered |
+      # Only output if there is at least one matching record
+      if ($filtered | length) > 0 then
+      # Generate header from first matching record
+      ($filtered[0] | keys_unsorted | (., map(length * "-"))) ,
+      # Then output each matching record as TSV
+      ($filtered[] | map(.) | @tsv)
+      else
+      empty
+      end)
+      ' | column -ts $'\t'
+
+#    select(.workflowName == "release")
+#    cmd: gh workflow view release
+#  attempt
+#  conclusion
+#  createdAt
+#  databaseId
+#  displayTitle
+#  event
+#  headBranch
+#  headSha
+#  name
+#  number
+#  startedAt
+#  status
+#  updatedAt
+#  url
+#  workflowDatabaseId
+#  workflowName
