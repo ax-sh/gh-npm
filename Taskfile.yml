@@ -11,7 +11,7 @@ tasks:
   tag:
     desc: Create a new version tag and GitHub release with changelog
     cmds:
-      - VERSION=$(git cliff --bumped-version) && git tag $VERSION && git push origin $VERSION
+      - VERSION=$(git cliff --bumped-version) && git tag $VERSION && git push origin $VERSION && && git cliff -s all --current
   tag-and-create-release:
     desc: Create a new version tag and GitHub release with changelog
     cmds:
