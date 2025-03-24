@@ -2,10 +2,11 @@ package api
 
 import (
 	"fmt"
-	"github.com/k0kubun/pp/v3"
-	"github.com/stretchr/testify/assert"
 	"log"
 	"testing"
+
+	"github.com/k0kubun/pp/v3"
+	"github.com/stretchr/testify/assert"
 )
 
 func FetchUserRepos(user string) {

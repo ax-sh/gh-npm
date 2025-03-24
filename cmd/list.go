@@ -27,7 +27,6 @@ var listCmd = &cobra.Command{
 			)
 			cmd.Println(msg, pkg.Repository.URL)
 		}
-
 	},
 }
 

@@ -2,9 +2,10 @@ package api
 
 import (
 	"fmt"
-	gh "github.com/cli/go-gh/v2/pkg/api"
 	"log"
 	"time"
+
+	gh "github.com/cli/go-gh/v2/pkg/api"
 )
 
 type PackagesResponse []struct {

@@ -14,7 +14,12 @@ tasks:
       - VERSION=$(git cliff --bumped-version) && git tag $VERSION && git push origin $VERSION && git cliff -l -s all | gh release create $VERSION --notes-file -
   release:
     cmd: goreleaser release
-
   check:
     cmds:
       - goreleaser healthcheck
+  lint:
+    cmd: go tool golangci-lint run
+  fmt:
+    cmd: go tool gofumpt -l -w .
+  tidy:
+    cmd: go tool goimports -l -w .
