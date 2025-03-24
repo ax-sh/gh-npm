@@ -4,7 +4,8 @@ version: 2
 before:
   hooks:
     - echo "🧼 formatting codebase"
-    - go mod tidy
+    - go tool gofumpt -l -w .
+#    - go mod tidy
 
 gomod:
   proxy: true
