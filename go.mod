@@ -6,7 +6,7 @@ require (
 	github.com/cli/go-gh/v2 v2.12.1
 	github.com/k0kubun/pp/v3 v3.4.1
 	github.com/spf13/cobra v1.9.1
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 )
 
 require (
